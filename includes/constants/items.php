@@ -39,7 +39,7 @@ $items = array(
   3 => array(
     "name" => "Sorting hat",
     "description" => "Wear me, handsome!",
-    "image" => "hat.png",
+    "image" => "helmet.png",
     "wearable" => 11,
     "stats" => array(
       5 => 3,
@@ -93,7 +93,7 @@ $items = array(
     ),
   ),
   
-  10 => array(
+  9 => array(
     "name" => "Cat",
     "description" => "Miaw",
     "image" => "cat.png",

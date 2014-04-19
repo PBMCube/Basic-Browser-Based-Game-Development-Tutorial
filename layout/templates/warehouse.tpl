@@ -87,7 +87,7 @@
   {foreach from = $warehouse item = item}
     <li class="media">
       <a class="pull-left" href="#">
-        <img class="media-object" src="layout/images/items/{$item.image}">
+        <img class="media-object" src="layout/images/items/{$items[$item.item_id].image}">
       </a>
       <div class="media-body">
         <h4 class="media-heading">{$items[$item.item_id].name} X {$item.quantity}</h4>

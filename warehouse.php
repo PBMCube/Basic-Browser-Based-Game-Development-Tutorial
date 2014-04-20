@@ -80,12 +80,12 @@ $armour       = getPlayerStat($player["player_id"], 12);
 $gloves       = getPlayerStat($player["player_id"], 13);
 $boots        = getPlayerStat($player["player_id"], 14);
 
-$player["firstWeapon"]  = $firstWeapon   ? $items[$firstWeapon]   : "none";
-$player["secondWeapon"] = $secondWeapon  ? $items[$secondWeapon]  : "none";
-$player["helmet"]       = $helmet        ? $items[$helmet]        : "none";
-$player["armour"]       = $armour        ? $items[$armour]        : "none";
-$player["gloves"]       = $gloves        ? $items[$gloves]        : "none";
-$player["boots"]        = $boots         ? $items[$boots]         : "none";
+$player["firstWeapon"]  = $firstWeapon   ? $items[$firstWeapon]   : null;
+$player["secondWeapon"] = $secondWeapon  ? $items[$secondWeapon]  : null;
+$player["helmet"]       = $helmet        ? $items[$helmet]        : null;
+$player["armour"]       = $armour        ? $items[$armour]        : null;
+$player["gloves"]       = $gloves        ? $items[$gloves]        : null;
+$player["boots"]        = $boots         ? $items[$boots]         : null;
 
 
 

@@ -48,7 +48,5 @@ if ($_POST["register"])
   } // if
 } // if
 
-$templateVariables["error"] = $error;
-$templateVariables["success"] = $success;
-$smarty->assign($templateVariables);
-$smarty->display("register.tpl");
+$templateVariables["display"] = "register.tpl";
+require_once("includes/footer.php");

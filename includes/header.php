@@ -1,4 +1,8 @@
 <?php
+// File: header.php
+// Author: makingbrowsergames.com
+// Basic Tutorial
+
 require('includes/smarty/Smarty.class.php');
 $smarty = new Smarty();
 
@@ -6,10 +10,6 @@ $smarty->setTemplateDir('layout/templates');
 $smarty->setCompileDir('includes/smarty/templates_c');
 $smarty->setCacheDir('includes/smarty/cache');
 $smarty->setConfigDir('includes/smarty/configs');
-
-// File: header.php
-// Author: makingbrowsergames.com
-// Basic Tutorial
  
 require_once('db_config.php');
 require_once('MysqliDb.php');

@@ -24,7 +24,7 @@ if ($profile["player_id"] != $player["player_id"])
 {
   if ($_POST["attack"])
   {
-    $attackerPlayer = computeStatsForBattle($player["player_id"]);
+    $attackerPlayer = computeStatsForBattle();
     $defenderPlayer = computeStatsForBattle($profile["player_id"]);
     
     /* Initiate fight */
@@ -89,11 +89,8 @@ if ($profile["player_id"] != $player["player_id"])
   } // attack request?
 } // if
 
-$templateVariables["error"]   = $error;
-$templateVariables["success"] = $success;
 $templateVariables["report"]  = $report;
 $templateVariables["profile"] = $profile;
-$templateVariables["player"]  = $player;
 
-$smarty->assign($templateVariables);
-$smarty->display("profile.tpl");
+$templateVariables["display"] = "profile.tpl";
+require_once("includes/footer.php");

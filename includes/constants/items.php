@@ -83,7 +83,7 @@ $items = array(
   
   8 => array(
     "name" => "Owl",
-    "description" => "I deliver letter and my claws are murder.",
+    "description" => "I deliver letters and my claws are murder.",
     "image" => "owl.png",
     "wearable" => 15,
     "price" => 40,

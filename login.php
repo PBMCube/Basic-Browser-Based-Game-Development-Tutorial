@@ -30,7 +30,5 @@ if ($_POST["login"])
   } // if username is valid-ish
 } // if
 
-$templateVariables["error"] = $error;
-
-$smarty->assign($templateVariables);
-$smarty->display("login.tpl");
+$templateVariables["display"] = "login.tpl";
+require_once("includes/footer.php");

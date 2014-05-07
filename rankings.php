@@ -5,9 +5,7 @@
  
 require_once("includes/header.php");
  
-// redirect if not logged in
-if (!$logged)
-  header("Location: login.php");
+must_login();
 
 // we are giving null as the second parameter for the get method
 // because we want to fetch all rows. If you set it to 2 it will fetch

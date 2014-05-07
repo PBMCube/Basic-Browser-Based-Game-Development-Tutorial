@@ -5,9 +5,7 @@
  
 require_once("includes/header.php");
  
-// redirect if not logged in
-if (!$logged)
-  header("Location: login.php");
+must_login();
 
 // I want to give players STR, INT and DEX when they train
 // the stat_id's for them are: 5, 6 and 7.
@@ -41,18 +39,17 @@ if ($_POST["train"] && $whenCanTrain == "now")
 {
   foreach ($statsToGive as $stat_id => $value)
   {
-    $statValue = getPlayerStat($player["player_id"], $stat_id);
-    updatePlayerStat($player["player_id"], $stat_id, $statValue + $value);
+    $statValue = getPlayerStat($stat_id);
+    updatePlayerStat($stat_id, $statValue + $value);
   } // foreach
 
   $dataInsert = array("player_id" => $player["player_id"], "created" => time());
   $db->insert("player_train_logs", $dataInsert);
   
-  header("Location: train.php");
+  do_redirect("train.php");
 } // if player wants to train
 
 $templateVariables["whenCanTrain"] = $whenCanTrain;
-$templateVariables["player"]       = $player;
 
-$smarty->assign($templateVariables);
-$smarty->display("train.tpl");
+$templateVariables["display"] = "train.tpl";
+require_once("includes/footer.php");

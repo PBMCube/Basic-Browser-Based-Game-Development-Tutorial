@@ -5,9 +5,7 @@
  
 require_once("includes/header.php");
  
-// redirect if not logged in
-if (!$logged)
-  header("Location: login.php");
+must_login();
 
 require_once("includes/constants/maps/forest.php");
 
@@ -31,8 +29,8 @@ if ($_POST["explore"])
     {
       $gold = rand(1, 100);
       $success = "You have found ".$gold." currency on the ground!";
-      $stat = getPlayerStat($player["player_id"], 8);
-      updatePlayerStat($player["player_id"], 8, $stat + $gold);
+      $stat = getPlayerStat('money');
+      updatePlayerStat('money', $stat + $gold);
     }
     else $success = "Nothing found. Keep exploring! Better luck next time";
 } // if explore request
@@ -41,7 +39,7 @@ if ($_POST["fight"] && $_SESSION["monsterFight"])
 {
   $monster = $monsters[$_SESSION["monsterFight"]];
   
-  $thePlayer = computeStatsForBattle($player["player_id"]);
+  $thePlayer = computeStatsForBattle();
   
   /* Initiate fight */
   $rounds = 0;
@@ -110,18 +108,15 @@ if ($_POST["fight"] && $_SESSION["monsterFight"])
     $currency *= -1;
   }
   // give/take currency
-  $stat = getPlayerStat($player["player_id"], 8);
-  updatePlayerStat($player["player_id"], 8, $stat + $currency);
+  $stat = getPlayerStat('money');
+  updatePlayerStat('money', $stat + $currency);
   
   unset($_SESSION["monsterFight"]);
 } // if fight request
 
-$templateVariables["success"]  = $success;
-$templateVariables["error"]    = $error;
-$templateVariables["player"]   = $player;
 $templateVariables["map"]      = $map;
 $templateVariables["monster"]  = $monster;
 $templateVariables["report"]   = $report;
 
-$smarty->assign($templateVariables);
-$smarty->display("forest.tpl");
+$templateVariables["display"] = "forest.tpl";
+require_once("includes/footer.php");
